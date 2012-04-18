@@ -1,0 +1,30 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<head>
+<title>{% block title %}{% endblock %}</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<div class="container">
+				<a class="site-logo" href="http://www.acfun.tv/"> <img
+					alt="ACFun" height="45" src="/static/img/logo.png">
+				</a>
+				<div class="topnav">
+					<div class="search">
+						<input type="text" class="search" id="global-search-field"
+							name="q" results="20" spellcheck="false" autocomplete="off">
+						<input type="submit" value="Search" class="button"> <span
+							class="mini-icon search-input"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="site">{% block content %} {% endblock %}</div>
+	</div>
+	<div id="footer"></div>
+</body>
+</html>
