@@ -72,7 +72,8 @@ body {
 	padding: 6px 5px 4px 30px;
 	color: #333;
 	font-size: 14px;
-	width: 380px;
+	width: 480px;
+    border-radius: 8px;
 }
 
 .topnav input.button {

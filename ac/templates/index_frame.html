@@ -4,6 +4,10 @@
 <title>{% block title %}{% endblock %}</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script
+    src="/static/js/json2.min.js"></script>
+<script
+    src="/static/js/index.js"></script>
 <link type="text/css" rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
@@ -20,6 +24,12 @@
 						<input type="submit" value="Search" class="button"> <span
 							class="mini-icon search-input"></span>
 					</div>
+                    <div class="profile">
+                        <!-- <iframe id="profile_frame" style="display: none" src="http://www.acfun.tv/user_check.aspx"> -->
+                        {% if logged_in %}
+                            asd
+                        {% endif %}
+                    </div>
 				</div>
 			</div>
 		</div>
