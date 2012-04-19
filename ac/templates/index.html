@@ -3,5 +3,46 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block content %}
-<h1></h1>
+<div class="container">
+    <div style="float: left; height: 500px; width: 640px; border: 1px solid #000">
+    </div>
+    <div class="columnRight">
+        <div class="columnTopbar">
+            <ul class="columnTopNav">
+                <li class="columnTopLi" id="navDayHot" onclick="showHot(0)"><span style="border-left: none">今日热点</span></li>
+                <li class="columnTopLi" id="navWeekHot" onclick="showHot(1)"><span>本周热点</span></li>
+                <li class="columnTopLi" id="navMonthHot" onclick="showHot(2)"><span>当月热点</span></li>
+            </ul>
+        </div>
+        <ul class="columnBodyNav" id="dayHot">
+        {% for item in dayHot %}
+            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">今日热点{{ item.name }}</li>
+        {% endfor %}
+        </ul>
+
+        <ul class="columnBodyNav" id="weekHot" style="display: none">
+        {% for item in weekHot %}
+            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">今日热点{{ item.name }}</li>
+        {% endfor %}
+        </ul>
+
+        <ul class="columnBodyNav" id="monthHot" style="display: none">
+        {% for item in monthHot %}
+            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">今日热点{{ item.name }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div class="columnRight">
+        <div class="columnTopbar">
+            <ul class="columnTopNav">
+                <li class="columnTopLi"><span style="border-left: none">热门文章</span></li>
+            </ul>
+        </div>
+        <ul class="columnBodyNav">
+        {% for item in hotArticle %}
+            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">今日热点{{ item.name }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
 {% endblock %}

@@ -1,12 +1,35 @@
 $(document).ready(function() {
     $("#global-search-field").focus();
-    load_user_info();
+    add_listeners();
 });
 
-function load_user_info(){
-    // request("ac_index", "http://www.acfun.tv/user_check.aspx" );
-    // var user_profile = request("user_profile", "http://www.acfun.tv/user_check.aspx" );
-    // alert(user_profile.uid);
+function add_listeners(){
+    $("a.cateLink").mouseover(function(){
+        $(this).parent().addClass("cateLinkOn");
+    });
+    $("a.cateLink").mouseout(function(){
+        $(this).parent().removeClass("cateLinkOn");
+    });
+    
+}
+
+function showHot(type){
+    switch(type){
+        case 1:
+            $("#dayHot").hide();
+            $("#monthHot").hide();
+            $("#weekHot").show();
+            break;
+        case 2:
+            $("#dayHot").hide();
+            $("#weekHot").hide();
+            $("#monthHot").show();
+            break;
+        default:
+            $("#monthHot").hide();
+            $("#weekHot").hide();
+            $("#dayHot").show();
+    }
 }
 
 function request(id,url){
