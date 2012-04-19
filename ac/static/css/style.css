@@ -18,7 +18,7 @@ body {
 	color: #333;
 }
 
-#header {
+#mainnav{
 	background: #FAFAFA;
 	background: -moz-linear-gradient(#FAFAFA, #EAEAEA);
 	background: -webkit-linear-gradient(#FAFAFA, #EAEAEA);
@@ -30,6 +30,19 @@ body {
 	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 10px
 		rgba(0, 0, 0, 0.1);
 	height: 48px;
+}
+#subnav{
+    background: #FF9100;
+    background: -moz-linear-gradient(#FFA140, #FF9C00);
+    background: -webkit-linear-gradient(#FFA140, #FF9C00);
+    -ms-filter:
+        "progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffA140',endColorstr='#ff8c00')";
+    position: relative;
+    z-index: 10;
+    border-bottom: 1px solid #CACACA;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 10px
+        rgba(0, 0, 0, 0.1);
+    height: 32px;
 }
 
 .container {
@@ -61,6 +74,7 @@ body {
 
 .search {
 	position: relative;
+    float: left;
 }
 
 .topnav .search input {
@@ -74,6 +88,7 @@ body {
 	font-size: 14px;
 	width: 480px;
     border-radius: 8px;
+    line-height: 16px;
 }
 
 .topnav input.button {
@@ -99,4 +114,50 @@ body {
 	background-position: 0 0;
 	background-repeat: no-repeat;
 	vertical-align: text-bottom;
+}
+#category_nav{
+    float: left;
+    line-height: 32px;
+    list-style: none outside none;
+}
+#category_nav li{
+    float:left;
+    padding-left: 16px;
+    padding-right: 10px;
+    border-right: 1px solid #FFB773;
+}
+#category_nav li a, #category_nav li a:hover, #category_nav li a:visited{
+    font-weight: bold;
+    text-shadow: 0 1px 0 #FFEC83;
+    letter-spacing: 0.5em;
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+}
+#category_nav li a:hover > #category_nav li{
+    display: block;
+    background-color: #333;
+}
+#login_div{
+    border-left: 1px solid #FAFAFA;
+    margin-left: 10px;
+    padding-left: 20px;
+    line-height: 30px;
+    float: left;
+}
+#login_div a, #login_div a:hover, #login_div a:visited{
+    margin-left: 10px;
+    font-weight: bold;
+    letter-spacing: 0.5em;
+    font-size: 18px;
+    text-decoration: none;
+    color: #000;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+#login_div a:hover{
+    color: #4183C4 !important;
+}
+.profile{
+    display: none;
+    float: left;
 }

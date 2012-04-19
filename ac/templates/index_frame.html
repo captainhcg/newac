@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE HTML>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <head>
 <title>{% block title %}{% endblock %}</title>
@@ -12,27 +12,45 @@
 </head>
 <body>
 	<div id="wrapper">
-		<div id="header">
-			<div class="container">
-				<a class="site-logo" href="http://www.acfun.tv/"> <img
-					alt="ACFun" height="45" src="/static/img/logo.png">
-				</a>
-				<div class="topnav">
-					<div class="search">
-						<input type="text" class="search" id="global-search-field"
-							name="q" results="20" spellcheck="false" autocomplete="off">
-						<input type="submit" value="Search" class="button"> <span
-							class="mini-icon search-input"></span>
-					</div>
-                    <div class="profile">
-                        <!-- <iframe id="profile_frame" style="display: none" src="http://www.acfun.tv/user_check.aspx"> -->
-                        {% if logged_in %}
-                            asd
-                        {% endif %}
+		<header>
+            <nav id="mainnav">
+                <div class="container">
+                    <a class="site-logo" href="http://www.acfun.tv/"> <img
+                        alt="ACFun" height="45" src="/static/img/logo.png">
+                    </a>
+                    <div class="topnav">
+                        <div class="search">
+                            <form id="searchForm" action="http://www.acfun.tv/search.aspx" method="get" target="_blank">
+                                <input type="text" class="search" id="global-search-field"
+                                    name="q" results="20" spellcheck="false" autocomplete="off">
+                                <input type="submit" value="Search" class="button"> <span
+                                    class="mini-icon search-input"></span>
+                            </form>
+                        </div>
+                        <div class="profile">
+                            {% if logged_in %}
+                            {% endif %}
+                        </div>
+                        <div id="login_div">
+                            <a href="http://www.acfun.tv/login.aspx">登录</a>
+                        </div>
                     </div>
-				</div>
-			</div>
-		</div>
+                </div>
+            </nav>
+            <nav id="subnav">
+                <div class="container">
+                    <ul id="category_nav">
+                        <li><a href="http://www.acfun.tv/v/list1/index.htm">动画</a></li>
+                        <li><a href="http://www.acfun.tv/v/list58/index.htm">音乐</a></li>
+                        <li><a href="http://www.acfun.tv/v/list59/index.htm">游戏</a></li>
+                        <li><a href="http://www.acfun.tv/v/list60/index.htm">娱乐</a></li>
+                        <li><a href="http://www.acfun.tv/v/list62/index.htm">番影</a></li>
+                        <li><a href="http://www.acfun.tv/v/list63/index.htm">文章</a></li>
+                        <li><a href="http://wiki.acfun.tv/" style="letter-spacing: 0; padding-right: 16px">WIKI</a></li>
+                    </ul>
+                </div>
+            </nav>
+		</header>
 		<div id="site">{% block content %} {% endblock %}</div>
 	</div>
 	<div id="footer"></div>
