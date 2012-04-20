@@ -10,24 +10,37 @@ function add_listeners(){
     $("a.cateLink").mouseout(function(){
         $(this).parent().removeClass("cateLinkOn");
     });
-    
+    $(".cateOpt").click(function(){
+        if($(this).attr("sel") == 1){
+            $(this).addClass("cateDel");
+            $(this).attr("sel", 0);
+        }
+        else{
+            $(this).removeClass("cateDel");
+            $(this).attr("sel", 1);           
+        }
+    });
 }
 
 function showHot(type){
+    $(".columnTopLi").removeClass('columnTopLiSelected');
     switch(type){
         case 1:
             $("#dayHot").hide();
             $("#monthHot").hide();
             $("#weekHot").show();
+            $("#navWeekHot").addClass('columnTopLiSelected');
             break;
         case 2:
             $("#dayHot").hide();
             $("#weekHot").hide();
             $("#monthHot").show();
+            $("#navMonthHot").addClass('columnTopLiSelected');
             break;
         default:
             $("#monthHot").hide();
             $("#weekHot").hide();
+            $("#navDayHot").addClass('columnTopLiSelected');
             $("#dayHot").show();
     }
 }

@@ -4,17 +4,37 @@
 
 {% block content %}
 <div class="container">
-    <div style="float: left; height: 500px; width: 640px; border: 1px solid #000">
+    <div class="main">
+        <nav id="cateSelect">
+            <div>选择感兴趣的分类（默认全选）</div>
+            <ul>
+                <li><input type="button" class="cateOpt" cate="1" sel=1 value="动"/></li>
+                <li><input type="button" class="cateOpt" cate="58" sel=1 value="音"/></li>
+                <li><input type="button" class="cateOpt" cate="59" sel=1 value="游"/></li>
+                <li><input type="button" class="cateOpt" cate="60" sel=1 value="娱"/></li>
+                <li><input type="button" class="cateOpt" cate="62" sel=1 value="番"/></li>
+                <li><input type="button" class="cateOpt" cate="62" sel=1 value="影"/></li>
+            </ul>
+        </nav>
+        <div id="newArticles">
+        {% for item in articles %}
+            <div class="newArt {{forloop.counter|divisibleby:2|yesno:"right,left"}} ">
+                <div class="newArtImg"><img src="{{ item.image }}"/></div>
+                <div class="newArtTle"><a href="{{ item.link }}">{{ item.title|slice:":20" }}</a></div>
+                <div class="newArtDesc">{{ item.description|slice:":50" }}</div>
+            </div>
+        {% endfor %}
+        </div>
     </div>
     <div class="columnRight">
         <div class="columnTopbar">
             <ul class="columnTopNav">
-                <li class="columnTopLi" id="navDayHot" onclick="showHot(0)"><span style="border-left: none">今日热点</span></li>
+                <li class="columnTopLi columnTopLiSelected" id="navDayHot" onclick="showHot(0)"><span style="border-left: none">今日热点</span></li>
                 <li class="columnTopLi" id="navWeekHot" onclick="showHot(1)"><span>本周热点</span></li>
                 <li class="columnTopLi" id="navMonthHot" onclick="showHot(2)"><span>当月热点</span></li>
             </ul>
         </div>
-        <ul class="columnBodyNav" id="dayHot">
+        <ul class="columnBodyNav " id="dayHot">
         {% for item in dayHot %}
             <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">今日热点{{ item.name }}</li>
         {% endfor %}
@@ -22,13 +42,13 @@
 
         <ul class="columnBodyNav" id="weekHot" style="display: none">
         {% for item in weekHot %}
-            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">今日热点{{ item.name }}</li>
+            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">本周热点{{ item.name }}</li>
         {% endfor %}
         </ul>
 
         <ul class="columnBodyNav" id="monthHot" style="display: none">
         {% for item in monthHot %}
-            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">今日热点{{ item.name }}</li>
+            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">当月热点{{ item.name }}</li>
         {% endfor %}
         </ul>
     </div>

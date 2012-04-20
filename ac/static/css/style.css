@@ -12,12 +12,14 @@ html,body {
 }
 
 body {
-	background-color: white;
-	font: 13px Helvetica, arial, freesans, clean, sans-serif;
+	background-color: #fafafa;
+	font: 13px "微软雅黑", Helvetica, arial, freesans, clean, sans-serif;
 	line-height: 1.4;
 	color: #333;
 }
-
+header{
+    background-color: white;
+}
 #mainnav{
 	background: #FAFAFA;
 	background: -moz-linear-gradient(#FAFAFA, #EAEAEA);
@@ -44,11 +46,10 @@ body {
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 10px
         rgba(0, 0, 0, 0.1);
     height: 28px;
-    margin-bottom: 10px;
+    margin-bottom: 2px;
 }
-
 .container {
-	width: 920px;
+	width: 980px;
 	margin: 0 auto;
 }
 
@@ -88,9 +89,10 @@ body {
 	padding: 6px 5px 4px 30px;
 	color: #333;
 	font-size: 14px;
-	width: 480px;
+	width: 500px;
     border-radius: 8px;
     line-height: 16px;
+    text-shadow: 0px 1px 0px white;
 }
 
 .topnav input.button {
@@ -143,7 +145,8 @@ li{
 }
 .cateLink, cateLink:visited{
     font-weight: bold;
-    text-shadow: 0 1px 0 #FFEC83;
+    /** text-shadow: 0 1px 0 #FFEC83; **/
+    text-shadow: 0 1px 0 #cacaca;
     font-size: 14px;
     color: #000;
     text-decoration: none;
@@ -163,7 +166,7 @@ li{
     font-weight: bold;
     font-size: 18px;
     text-decoration: none;
-    color: #000;
+    color: #567890;
     text-shadow: 0 1px 0 #FFFFFF;
     line-height: 48px;
     top: -9px;
@@ -188,12 +191,11 @@ li{
     float: left;
 }
 .columnRight{
-    width: 240px;
+    width: 210px;
     float: right;
     border: 1px solid #DDD;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
     margin-bottom: 10px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .columnTopbar{
     position: relative;
@@ -213,11 +215,16 @@ li{
     display: block;
     height: 28px;
     cursor: pointer;
-    text-shadow: 0 1px 0 #FFFFFF;
     font-weight: bold;
-    font-size: 14px;
-    padding: 0 10px;
+    font-size: 13px;
+    padding: 0 6px;
     border-left: 1px solid #FAFAFA;
+    text-shadow: 0px 1px 0px white;
+}
+.columnTopLiSelected{
+    background: white;
+    color: #EE6C00;
+    text-shadow: 0px 1px 0px #fff;
 }
 .columnTopLi span:hover{
     color: #456789;
@@ -226,20 +233,113 @@ li{
     background: -webkit-linear-gradient(#FAFBFD, #DCE6EF);
     -ms-filter:
         "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFBFD',endColorstr='#DCE6EF')";
-    border-bottom: 1px solid #234567;
-}
-.columnBodyNav{
 }
 .columnBodyNav li{
     float: none;
     display: block;
     padding: 4px 0 4px 8px;
-    border-top: 1px solid #EAEAEA;
 }
 .columnBodyNav li.odd{
-    background-color: #FAFAFA;
-}
-.columnBodyNav li.even{
     background-color: #FFF;
 }
+.columnBodyNav li.even{
+    background-color: #fafafa;
+}
 
+
+
+
+/*********** main **********/
+.main{
+    float: left;
+    width: 740px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+nav#cateSelect div{
+    float: left;
+    margin-left: 20px;
+    line-height: 26px;
+}
+nav#cateSelect{
+    background-color: white;
+    margin-bottom: 2px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 738px;
+    height: 26px;
+    line-height: 24px;
+    border: 1px solid #DDDDDD;
+}
+nav#cateSelect ul{
+    float: left;
+}
+nav#cateSelect ul li{
+    font-size: 13px;
+    text-shadow: 0px 1px 0px #fff;
+    font-weight: bold; 
+}
+nav#cateSelect ul li input{
+    cursor: pointer;
+    padding: 0px 15px;
+    line-height: 26px;
+    background-color: transparent;  
+    color: #ee6C00;
+}
+input.cateDel{
+    background: #DEDEDE;
+    background: -moz-linear-gradient(#DEDEDE, #CDCDCD);
+    background: -webkit-linear-gradient(#DEDEDE, #CDCDCD);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#DEDEDE',endColorstr='#CDCDCD')";
+    color: #FFF !important;
+    text-shadow: 0px -1px 0px #999;
+}
+.newArticles{
+    float: left;
+    width: 100%;
+}
+.newArt{
+    float: left;
+    width: 365px;
+    height: 82px;
+    margin-bottom: 2px;
+    background: #FFF;
+    border: 1px solid #DDDDDD;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.newArtImg, .newArtTle, .newArtDesc{
+    float: left;
+    padding: 7px;
+
+}
+.newArt img{
+    width: 88px;
+    height: 66px;
+    border-radius: 3px;
+}
+.newArtTle{
+    padding-top: 6px;
+    padding-left: 10px;
+    padding-bottom: 2px;
+}
+.newArtTle a, .newArtTle a:visited{
+    
+    font-size: 13px;
+    font-weight: bold;
+    color: #456789;
+    text-decoration: none;
+    line-height: 16px;
+
+}
+.newArtTle a:hover{
+    color: #EE6C00;
+}
+
+.newArtDesc{
+    width: 243px;
+    font-size: 12px;
+    padding: 10px;
+    padding-top: 0;
+}
+#newArticles div.left{
+    margin-right: 6px;
+}
