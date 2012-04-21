@@ -1,4 +1,4 @@
-{% extends "index_frame.html" %}
+{% extends "base.html" %}
 
 {% block title %} {{ title }} {% endblock %}
 
@@ -20,21 +20,23 @@
             </ul>
         </nav>
         <div id="newArticles">
+        {% autoescape off %}
         {% for item in articles %}
-            <div class="newArt {{forloop.counter|divisibleby:2|yesno:"right,left"}} ">
+            <div class="newArt {% if forloop.counter > 30 %}hide{% endif %} ">
                 <div class="newArtImg"><img src="{{ item.image }}"/></div>
-                <div class="newArtTle"><a href="{{ item.link }}">{{ item.title|slice:":20" }}</a></div>
-                <div class="newArtDesc">{{ item.description|slice:":60" }}</div>
+                <div class="newArtTle"><a target="_blank" href="{{ item.link }}">{{ item.title|slice:":18" }}</a></div>
+                <div class="newArtDesc">{{ item.desc|slice:":50" }}</div>
             </div>
         {% endfor %}
+        {% endautoescape%}
         </div>
     </div>
     <div class="columnRight">
         <div class="columnTopbar">
             <ul class="columnTopNav">
-                <li class="columnTopLi columnTopLiSelected" id="navDayHot" onclick="showHot(0)"><span style="border-left: none">今日热点</span></li>
-                <li class="columnTopLi" id="navWeekHot" onclick="showHot(1)"><span>本周热点</span></li>
-                <li class="columnTopLi" id="navMonthHot" onclick="showHot(2)"><span>当月热点</span></li>
+                <li class="columnTopLi columnTopLiSelected" id="navDayHot" onclick="showHot(0)"><input type="button" style="border-left: none" value="今日热点"></p></li>
+                <li class="columnTopLi" id="navWeekHot" onclick="showHot(1)"><input type="button" value="本周热点"></li>
+                <li class="columnTopLi" id="navMonthHot" onclick="showHot(2)"><input type="button" value="当月热点"></li>
             </ul>
         </div>
         <ul class="columnBodyNav " id="dayHot">
@@ -58,12 +60,12 @@
     <div class="columnRight">
         <div class="columnTopbar">
             <ul class="columnTopNav">
-                <li class="columnTopLi"><span style="border-left: none">热门文章</span></li>
+                <li class="columnTopLi"><input type="button" style="border-left: none" value="热门文章"></li>
             </ul>
         </div>
         <ul class="columnBodyNav">
         {% for item in hotArticle %}
-            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">今日热点{{ item.name }}</li>
+            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">热门文章{{ item.name }}</li>
         {% endfor %}
         </ul>
     </div>

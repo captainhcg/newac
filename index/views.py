@@ -5,6 +5,8 @@ from django.utils import timezone
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib import staticfiles
+from django.core.cache import cache
+from logging import warning as warn
 
 
 def index(request):
@@ -35,14 +37,27 @@ def index(request):
         item['name'] = str(random.randint(100, 999))
         hotArticle.append(item)
 
-    toShow = 30
     articles = []
-    for i in xrange(toShow):
-        item = {}
-        item['link'] = "http://www.acfun.tv";
-        item['title'] = u"【P.A. 奥妮】最炫过山风NL过山车X最炫民"
-        item['description'] = u"代投：农业重金属摇滚果然厉害！自带抗眩晕和提神BUFF！这次是同步率爆表的超同步最炫民族风过山车！奥妮表示以后困倦的时候就看这个提神了~欢迎大家多多吐槽~"
-        item['image'] = "http://www.acfun.tv/r/cms/www/no_picture.gif"
-        articles.append(item)
+    # get cached lastest commented articles
+    cachedArticles = cache.get("getlastfeedback")
+
+    # fake data
+    toShow = 30
+    if not cachedArticles:
+        for i in xrange(toShow):
+            item = {}
+            item['link'] = "http://www.acfun.tv";
+            item['title'] = u"【P.A. 奥妮】最炫过山风NL过山车X最炫民"
+            item['desc'] = u"代投：农业重金属摇滚果然厉害！自带抗眩晕和提神BUFF！这次是同步率爆表的超同步最炫民族风过山车！奥妮表示以后困倦的时候就看这个提神了~欢迎大家多多吐槽~"
+            item['image'] = "http://www.acfun.tv/r/cms/www/no_picture.gif"
+            articles.append(item)
+    # real data:
+    else:
+        toShow = len(articles)
+        for k,v in cachedArticles.iteritems():
+            v['desc'] = v['desc'].replace('&amp;', '&').replace('&nbsp;', ' ')
+            v['image'] = "http://www.acfun.tv/r/cms/www/no_picture.gif"
+            v['link'] = "http://www.acfun.tv/"+v['link']
+            articles.append(v)
 
     return render_to_response('index.html', locals(), context_instance=RequestContext(request))

@@ -29,6 +29,9 @@ ul{
 li{
     float: left;
 }
+.hide{
+    display: none;
+}
 
 /*************************************/
 header{
@@ -116,7 +119,7 @@ header{
 .topnav .search .mini-icon {
 	position: absolute;
 	left: 8px;
-	top: 8px;
+	top: 7px;
 }
 
 .mini-icon.search-input {
@@ -163,7 +166,7 @@ header{
     font-weight: bold;
     /** text-shadow: 0 1px 0 #FFEC83; **/
     text-shadow: 0 1px 0 #cacaca;
-    font-size: 12px;
+    font-size: 13px;
     color: #000;
     text-decoration: none;
     display: block;
@@ -231,7 +234,7 @@ header{
 .columnTopLi{
     text-shadow: 0px 1px 0px white;
 }
-.columnTopLi span{
+.columnTopLi input{
     display: block;
     height: 28px;
     cursor: pointer;
@@ -241,11 +244,15 @@ header{
     border-left: 1px solid #FAFAFA;
 }
 .columnTopLiSelected{
-    background: white;
-    color: #FF6C00;
+    border: 1px solid #DDD !important;
+    border-bottom: none !important;
+}
+.columnTopLiSelected input{
+    background: white !important;
+    color: #FF6C00 !important;
     text-shadow: 1px 1px 1px #DDD !important;
 }
-.columnTopLi span:hover{
+.columnTopLi input:hover{
     text-shadow: 0px 1px 0px white;
     color: #456789;
     background: #FAFBFD;
@@ -272,7 +279,7 @@ header{
 /*********** main **********/
 .main{
     float: left;
-    width: 740px;
+    width: 742px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
@@ -350,7 +357,9 @@ input.cateDel{
 .newArt{
     float: left;
     width: 367px;
+    margin-right: 2px;
     height: auto;
+    min-height: 68px;
     margin-bottom: 2px;
     background: #FFF;
     border: 1px solid #DDDDDD;
@@ -373,6 +382,7 @@ input.cateDel{
     padding-top: 5px;
     padding-left: 10px;
     padding-bottom: 2px;
+    font-size: 13px;
 }
 .newArtTle a, .newArtTle a:visited{
     font-size: 1wpx;
@@ -388,13 +398,9 @@ input.cateDel{
 
 .newArtDesc{
     width: 243px;
-    padding: 2px 10px 8px;
-    font-size: 11px;
+    padding: 2px 10px 6px;
 }
 .newArtDescLong{
     width: 347px;
-}
-#newArticles div.left{
-    margin-right: 2px;
 }
 
