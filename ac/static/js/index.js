@@ -1,6 +1,7 @@
 $(document).ready(function() {
     $("#global-search-field").focus();
     add_listeners();
+    escapeDesc();
 });
 
 function add_listeners(){
@@ -19,6 +20,12 @@ function add_listeners(){
             $(this).removeClass("cateDel");
             $(this).attr("sel", 1);           
         }
+    });
+}
+function escapeDesc(){
+    $(".newArtDesc").each(function(){
+        a=$(this).text().length?$(this).text():"壮哉我大AcFun！";
+        $(this).html(parseGet(parsePost(a.replace(/\<[\s\S]+?\>/g,""))));
     });
 }
 

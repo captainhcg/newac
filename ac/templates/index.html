@@ -22,13 +22,13 @@
         <div id="newArticles">
         {% autoescape off %}
         {% for item in articles %}
-            <div class="newArt {% if forloop.counter > 30 %}hide{% endif %} ">
+            <div class="newArt {% if forloop.counter > 40 %}hide{% endif %} ">
                 <div class="newArtImg"><img src="{{ item.image }}"/></div>
                 <div class="newArtTle"><a target="_blank" href="{{ item.link }}">{{ item.title|slice:":18" }}</a></div>
                 <div class="newArtDesc">{{ item.desc|slice:":50" }}</div>
             </div>
         {% endfor %}
-        {% endautoescape%}
+        {% endautoescape %}
         </div>
     </div>
     <div class="columnRight">

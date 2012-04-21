@@ -55,7 +55,6 @@ def index(request):
     else:
         toShow = len(articles)
         for k,v in cachedArticles.iteritems():
-            v['desc'] = v['desc'].replace('&amp;', '&').replace('&nbsp;', ' ')
             v['image'] = "http://www.acfun.tv/r/cms/www/no_picture.gif"
             v['link'] = "http://www.acfun.tv/"+v['link']
             articles.append(v)
