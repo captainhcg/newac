@@ -25,7 +25,7 @@
             <div class="newArt {% if forloop.counter > 40 %}hide{% endif %} ">
                 <div class="newArtImg"><img src="{{ item.image }}"/></div>
                 <div class="newArtTle"><a target="_blank" href="{{ item.link }}">{{ item.title|slice:":18" }}</a></div>
-                <div class="newArtDesc">{{ item.desc|slice:":50" }}</div>
+                <div class="newArtDesc">{{ item.desc }}</div>
             </div>
         {% endfor %}
         {% endautoescape %}
@@ -53,7 +53,7 @@
 
         <ul class="columnBodyNav" id="monthHot" style="display: none">
         {% for item in monthHot %}
-            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">当月热点{{ item.name }}</li>
+            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">目前还没有做{{ item.name }}</li>
         {% endfor %}
         </ul>
     </div>

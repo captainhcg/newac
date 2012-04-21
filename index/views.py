@@ -16,7 +16,7 @@ def index(request):
     monthHot = []
     hotArticle = []
     import random
-    topShow = 16
+    topShow = 15
     for i in xrange(topShow):
         item = {}
         item['name'] = str(random.randint(100, 999))

@@ -38,3 +38,4 @@ Thumbs.db
 # Customized files #
 ####################
 settings.py
+*.sh
