@@ -44,7 +44,24 @@ function showHot(type){
             $("#dayHot").show();
     }
 }
-
+function flipPre(o){
+    // show all preview
+    if($(o).attr("sel") == 1){
+        $(".newArtImg").show();
+        $(o).attr("sel", 0);
+        $(o).removeClass('cateDel');
+        $(".newArtDesc").removeClass('newArtDescLong');
+        $(".newArt").removeClass('newArtShort');
+    }
+    // hide all preview
+    else{
+        $(".newArtImg").hide();
+        $(o).attr("sel", 1);
+        $(o).addClass('cateDel')
+        $(".newArtDesc").addClass('newArtDescLong');
+        $(".newArt").addClass('newArtShort');
+    }
+}
 function request(id,url){
     oScript = document.getElementById(id);
     var head = document.getElementsByTagName("head").item(0);

@@ -6,7 +6,7 @@
 <div class="container">
     <div class="main">
         <nav id="cateSelect">
-            <div>选择感兴趣的分类（默认全选）</div>
+            <div id="cateExp">感兴趣的分类 >></div>
             <ul>
                 <li><input type="button" class="cateOpt" cate="1" sel=1 value="动"/></li>
                 <li><input type="button" class="cateOpt" cate="58" sel=1 value="音"/></li>
@@ -15,13 +15,16 @@
                 <li><input type="button" class="cateOpt" cate="62" sel=1 value="番"/></li>
                 <li><input type="button" class="cateOpt" cate="62" sel=1 value="影"/></li>
             </ul>
+            <ul class="cateSelectRight">
+                <li><input type="button" value="缩略图" sel=0 onclick="flipPre(this)"/></li>
+            </ul>
         </nav>
         <div id="newArticles">
         {% for item in articles %}
             <div class="newArt {{forloop.counter|divisibleby:2|yesno:"right,left"}} ">
                 <div class="newArtImg"><img src="{{ item.image }}"/></div>
                 <div class="newArtTle"><a href="{{ item.link }}">{{ item.title|slice:":20" }}</a></div>
-                <div class="newArtDesc">{{ item.description|slice:":50" }}</div>
+                <div class="newArtDesc">{{ item.description|slice:":60" }}</div>
             </div>
         {% endfor %}
         </div>

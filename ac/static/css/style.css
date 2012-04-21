@@ -1,3 +1,4 @@
+/************** universal setting ***************/
 * {
 	margin: 0;
 	padding: 0;
@@ -13,10 +14,23 @@ html,body {
 
 body {
 	background-color: #fafafa;
-	font: 13px "微软雅黑", Helvetica, arial, freesans, clean, sans-serif;
+	font: 12px "微软雅黑", Helvetica, arial, freesans, clean, sans-serif;
 	line-height: 1.4;
 	color: #333;
 }
+input::-moz-focus-inner /*Remove button padding in FF*/
+{ 
+    border: 0;
+    padding: 0;
+}
+ul{
+    list-style: none outside none;
+}
+li{
+    float: left;
+}
+
+/*************************************/
 header{
     background-color: white;
 }
@@ -31,7 +45,7 @@ header{
 	border-bottom: 1px solid #CACACA;
 	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 10px
 		rgba(0, 0, 0, 0.1);
-	height: 48px;
+	height: 40px;
 }
 #subnav{
     /** background: #FF9100;
@@ -45,7 +59,7 @@ header{
     border-bottom: 1px solid #CACACA;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 10px
         rgba(0, 0, 0, 0.1);
-    height: 28px;
+    height: 26px;
     margin-bottom: 2px;
 }
 .container {
@@ -70,8 +84,8 @@ header{
 	width: auto;
 	border-left: 1px solid #FAFAFA;
 	box-shadow: -1px 0 0 #e0e0e0;
-	padding: 9px;
-	height: 30px;
+	padding: 6px;
+	height: 26px;
 	margin: 0 0 0 168px;
 }
 
@@ -86,7 +100,7 @@ header{
 	border: 1px solid #DDD;
 	border-top: 1px solid #CDCDCD;
 	box-shadow: 0 1px 0 #f1f1f1, inset 0 1px 1px #e0e0e0;
-	padding: 6px 5px 4px 30px;
+	padding: 4px 5px 2px 30px;
 	color: #333;
 	font-size: 14px;
 	width: 500px;
@@ -119,41 +133,44 @@ header{
 	background-repeat: no-repeat;
 	vertical-align: text-bottom;
 }
-ul{
-    list-style: none outside none;
-}
-li{
+#linkNav{
+    line-height: 26px;
     float: left;
+    padding: 0 2px 0 20px;
+    color: #FF6C00;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #DDD;
 }
 #category_nav{
-    line-height: 28px;
+    line-height: 26px;
     padding-left: 9px;
 }
 .cateLinkOn{
-    background: #FFCC20;
-    background: -moz-linear-gradient(#FFE160, #FFCC20);
-    background: -webkit-linear-gradient(#FFE160, #FFCC20);
-    -ms-filter:
-        "progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe160',endColorstr='#ffcc20')";
-    position: relative;
-    border-bottom: 2px solid #FF9100;
+    color: #234567 !important;
+    background: #FAFBFD;
+    background: -moz-linear-gradient(#FAFBFD, #DCE6EF);
+    background: -webkit-linear-gradient(#FAFBFD, #DCE6EF);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFBFD',endColorstr='#DCE6EF')";
+    border-bottom: 1px solid #234567;
 }
 #category_nav li{
     float:left;
-    border-right: 1px solid #FFB773;
+    border-right: 1px solid #E0E0E0;
     padding: 0 2px;
 }
 .cateLink, cateLink:visited{
     font-weight: bold;
     /** text-shadow: 0 1px 0 #FFEC83; **/
     text-shadow: 0 1px 0 #cacaca;
-    font-size: 14px;
+    font-size: 12px;
     color: #000;
     text-decoration: none;
     display: block;
     padding: 0 10px;
 }
 .cateLink:hover{
+    text-shadow: 0 1px 0 #fff;
     color: #456789 !important;
 }
 #login_div{
@@ -162,20 +179,20 @@ li{
     float: left;
 }
 #loginLink, #loginLink:visited{
+    box-shadow: -1px 0 0 #E0E0E0;
     margin-left: 10px;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     text-decoration: none;
     color: #567890;
     text-shadow: 0 1px 0 #FFFFFF;
-    line-height: 48px;
-    top: -9px;
+    line-height: 40px;
+    top: -6px;
     position: relative;
     display: block;
     padding: 0 20px;
     background: transparent;
     border-left: 1px solid #FAFAFA;
-    border-right: 1px solid #FAFAFA;
 }
 #loginLink:hover{
     color: #234567 !important;
@@ -211,6 +228,9 @@ li{
     margin-left: 4px;
     line-height: 28px;
 }
+.columnTopLi{
+    text-shadow: 0px 1px 0px white;
+}
 .columnTopLi span{
     display: block;
     height: 28px;
@@ -219,14 +239,14 @@ li{
     font-size: 13px;
     padding: 0 6px;
     border-left: 1px solid #FAFAFA;
-    text-shadow: 0px 1px 0px white;
 }
 .columnTopLiSelected{
     background: white;
-    color: #EE6C00;
-    text-shadow: 0px 1px 0px #fff;
+    color: #FF6C00;
+    text-shadow: 1px 1px 1px #DDD !important;
 }
 .columnTopLi span:hover{
+    text-shadow: 0px 1px 0px white;
     color: #456789;
     background: #FAFBFD;
     background: -moz-linear-gradient(#FAFBFD, #DCE6EF);
@@ -258,17 +278,40 @@ li{
 }
 nav#cateSelect div{
     float: left;
-    margin-left: 20px;
     line-height: 26px;
+    color: #333;
+}
+nav#cateSelect #cateExp{
+    padding: 0 10px;
+    text-shadow: 0 1px 0 #FFF;
+    font-weight: bold;
 }
 nav#cateSelect{
-    background-color: white;
     margin-bottom: 2px;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 10px rgba(0, 0, 0, 0.1);
     width: 738px;
     height: 26px;
-    line-height: 24px;
+    line-height: 26px;
     border: 1px solid #DDDDDD;
+    background: #FAFAFA;
+    background: -moz-linear-gradient(#FAFAFA, #EAEAEA);
+    background: -webkit-linear-gradient(#FAFAFA, #EAEAEA);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#eaeaea')";
+}
+.cateSelectRight{
+    float: right !important;
+    margin-right: 20px;
+}
+.cateSelectRight input{
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 24px;
+    padding: 0 6px;
+    height: 24px;
+    background-color: transparent;
+    text-shadow: 0 1px 0 #FFF;
+    font-size: 13px;
+    color: #ee6c00;
 }
 nav#cateSelect ul{
     float: left;
@@ -278,20 +321,27 @@ nav#cateSelect ul li{
     text-shadow: 0px 1px 0px #fff;
     font-weight: bold; 
 }
+nav#cateSelect ul li input:hover{
+    text-shadow: 0px 1px 0px white;
+    color: #456789;
+    background: #FAFBFD;
+    background: -moz-linear-gradient(#FAFBFD, #DCE6EF);
+    background: -webkit-linear-gradient(#FAFBFD, #DCE6EF);
+    -ms-filter:
+        "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFBFD',endColorstr='#DCE6EF')";
+}
 nav#cateSelect ul li input{
     cursor: pointer;
-    padding: 0px 15px;
-    line-height: 26px;
+    padding: 0px 12px;
+    line-height: 24px;
+    height: 24px;
     background-color: transparent;  
-    color: #ee6C00;
+    text-shadow: 0 1px 0 #FFF;
+    color: #ee6c00;
 }
 input.cateDel{
-    background: #DEDEDE;
-    background: -moz-linear-gradient(#DEDEDE, #CDCDCD);
-    background: -webkit-linear-gradient(#DEDEDE, #CDCDCD);
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#DEDEDE',endColorstr='#CDCDCD')";
     color: #FFF !important;
-    text-shadow: 0px -1px 0px #999;
+    text-shadow: 0px -1px 0px #999 !important;
 }
 .newArticles{
     float: left;
@@ -299,31 +349,33 @@ input.cateDel{
 }
 .newArt{
     float: left;
-    width: 365px;
-    height: 82px;
+    width: 367px;
+    height: auto;
     margin-bottom: 2px;
     background: #FFF;
     border: 1px solid #DDDDDD;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 10px rgba(0, 0, 0, 0.1);
 }
+.newArtShort{
+}
 .newArtImg, .newArtTle, .newArtDesc{
     float: left;
-    padding: 7px;
+    padding: 7px 7px 5px;
 
 }
 .newArt img{
     width: 88px;
     height: 66px;
     border-radius: 3px;
+    border: 1px solid #999;
 }
 .newArtTle{
-    padding-top: 6px;
+    padding-top: 5px;
     padding-left: 10px;
     padding-bottom: 2px;
 }
 .newArtTle a, .newArtTle a:visited{
-    
-    font-size: 13px;
+    font-size: 1wpx;
     font-weight: bold;
     color: #456789;
     text-decoration: none;
@@ -336,10 +388,13 @@ input.cateDel{
 
 .newArtDesc{
     width: 243px;
-    font-size: 12px;
-    padding: 10px;
-    padding-top: 0;
+    padding: 2px 10px 8px;
+    font-size: 11px;
+}
+.newArtDescLong{
+    width: 347px;
 }
 #newArticles div.left{
-    margin-right: 6px;
+    margin-right: 2px;
 }
+
