@@ -7,7 +7,7 @@ import core, json
 from core import cache
 
 def update_dict(dic):
-    new_feeds = core.grabPage("www.acfun.tv", "/api/getlastfeedback.aspx");
+    new_feeds = core.grabPage("www.acfun.tv", "/api/getlastfeedback.aspx")
     if new_feeds:
         new_feeds_list = json.loads(new_feeds)
     else:

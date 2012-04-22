@@ -399,8 +399,11 @@ input.cateDel{
 .newArtDesc{
     width: 243px;
     padding: 2px 10px 6px;
+    height: 45px;
+    overflow: hidden;
 }
 .newArtDescLong{
     width: 347px;
+    height: 26px;
 }
 
