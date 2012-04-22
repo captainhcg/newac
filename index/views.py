@@ -11,32 +11,11 @@ from logging import warning as warn
 
 def index(request):
     title = u"AC的新衣"
-    dayHot = []
-    weekHot = []
-    monthHot = []
+    dayHot = cache.get('dayHot')
+    weekHot = cache.get('weekHot')
+    monthHot = cache.get('monthHot')
+    articleHot = cache.get('articleHot')
     hotArticle = []
-    import random
-    topShow = 15
-    for i in xrange(topShow):
-        item = {}
-        item['name'] = str(random.randint(100, 999))
-        dayHot.append(item)
-
-    for i in xrange(topShow):
-        item = {}
-        item['name'] = str(random.randint(100, 999))
-        weekHot.append(item)
-
-    for i in xrange(topShow):
-        item = {}
-        item['name'] = str(random.randint(100, 999))
-        monthHot.append(item)
-
-    for i in xrange(topShow):
-        item = {}
-        item['name'] = str(random.randint(100, 999))
-        hotArticle.append(item)
-
     articles = []
     # get cached lastest commented articles
     cachedArticles = cache.get("getlastfeedback")
@@ -55,7 +34,10 @@ def index(request):
     else:
         toShow = len(articles)
         for k,v in cachedArticles.iteritems():
-            v['image'] = "http://www.acfun.tv/r/cms/www/no_picture.gif"
+            if cache.get('preview'+str(v['id'])):
+                v['image'] = cache.get('preview'+str(v['id']))
+            else:
+                v['image'] = "http://www.acfun.tv/r/cms/www/no_picture.gif"
             v['link'] = "http://www.acfun.tv/"+v['link']
             articles.append(v)
 

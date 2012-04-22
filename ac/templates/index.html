@@ -41,19 +41,21 @@
         </div>
         <ul class="columnBodyNav " id="dayHot">
         {% for item in dayHot %}
-            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">今日热点{{ item.name }}</li>
+            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">
+                <a target="_blank" href="http://www.acfun.tv/{{ item.link }}">{{ item.title }}</a></li>
         {% endfor %}
         </ul>
 
         <ul class="columnBodyNav" id="weekHot" style="display: none">
         {% for item in weekHot %}
-            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">本周热点{{ item.name }}</li>
+            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">
+                <a target="_blank" href="http://www.acfun.tv/{{ item.link }}">{{ item.title }}</a></li>
         {% endfor %}
         </ul>
 
         <ul class="columnBodyNav" id="monthHot" style="display: none">
         {% for item in monthHot %}
-            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">目前还没有做{{ item.name }}</li>
+            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">目前还没有做{{ item.title }}</li>
         {% endfor %}
         </ul>
     </div>
@@ -64,8 +66,9 @@
             </ul>
         </div>
         <ul class="columnBodyNav">
-        {% for item in hotArticle %}
-            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">热门文章{{ item.name }}</li>
+        {% for item in articleHot %}
+            <li class="{{forloop.counter|divisibleby:2|yesno:"even,odd"}}">
+                <a target="_blank" href="http://www.acfun.tv/{{ item.link }}">{{ item.title }}</a></li>
         {% endfor %}
         </ul>
     </div>
