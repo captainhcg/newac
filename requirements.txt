@@ -1,0 +1,7 @@
+Django==1.4.0
+South==0.7.4
+simplejson==2.6.1
+jsmin==2.0.2
+
+django-extensions
+MySQL-python

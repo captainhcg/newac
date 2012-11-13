@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% load newac_utils %}
+
+{% block content %}
+<style type="text/css">
+.main{
+    box-shadow: 2px 2px 8px #999;
+    border: 1px solid #aaa;
+}
+.hero-unit{
+    padding: 40px 30px !important; 
+    background-image: url({% static_url %}images/laojie.jpg);
+    height: 360px;
+    box-shadow: 0 0 20px black inset, 2px 2px 10px #999;
+    margin-bottom: 0px !important;
+    border-radius: 0 !important;
+}
+#hero-caption{
+    padding: 4px 7px;
+    background-color: rgba(10, 10, 10, 0.5);
+    display: inline-block;
+    border-radius: 6px;
+    margin-top: 180px;
+    margin-left: 30px
+}
+#hero-caption h1{
+    color: #fefefe;
+    display: inline;
+    font-size: 28px;
+    text-shadow: 0 -1px 0 #000;
+}
+#hero-form{
+    margin-top: 10px;
+    padding-left: 20px;
+    background-color: rgba(10, 10, 10, 0.25);
+    display: inline-block;
+    border-radius: 6px;
+    padding: 18px 0 0 0px;
+	margin-left: 40px;
+}
+#hero-form label{
+    color: #fefefe;
+    text-shadow: 0 -1px 2px #000;
+    font-size: 18px;
+    display: inline;
+    margin-right: 10px;
+    font-weight: bold;
+}
+#footstep{
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+.section-desc{
+	margin-top: 12px;
+	margin-bottom: 8px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 #fff;
+    color: #333;
+}
+.row{
+    background-color: #ffdead;
+    box-shadow: 0 0 30px #666 inset, 2px 2px 8px #999;
+    margin-left: 0px;
+}
+.row h2{
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	line-height: 30px;
+	font-size: 16px;
+	color: #fefefe;
+}
+.section-card{
+	height: 110px;
+    padding: 20px 9px 20px 29px;
+    margin-bottom: 20px;
+}
+.arrow-right {
+	width: 19px;
+	padding: 0;
+	background-image:url({% static_url %}images/blue-arrow.png);
+}
+.section-title{
+	line-height: 30px;
+	vertical-align: middle;
+}
+.section-title tr td:first-child{
+	padding: 3px 10px;
+	background-image:url({% static_url %}images/blue-back.png);
+	background-repeat:repeat-x;
+    border-left: 1px solid #999;
+}
+footer{
+	text-align: center;
+}
+.row .span4{
+    width: 300px;
+    margin-left: 20px;
+}
+.row .span4:first-child{
+    margin-left: 0px !important;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+    $("#footstep").on("click", function(){
+        if($("#nickname").val().length < 2){
+            alert("请使用两个字符以上的昵称");
+            return;
+        }
+        if($("#age").val() == 0){
+            alert("请选择自己的年龄");
+            return
+        }
+        $('#hero-form').submit();
+    })
+})
+</script>
+<!-- Main hero unit for a primary marketing message or call to action -->
+<div class="hero-unit">
+    <div id="hero-caption">
+        <h1>我从哪里起飞，在哪里飞过</h1>
+    </div><br />
+    <form id="hero-form" method="post" action="/coming/">
+        {% csrf_token %}
+        <label for="nickname">昵称</label>
+        <input name="nickname" id="nickname" type="text" class="span2" placeholder="随便起一个吧"><br />
+        <label for="age">年龄</label>
+        <select class="span2" id="age" name="age">
+            <option value="0">--</option>
+            {% for age in ages %}
+            <option value="{{age}}">{{age}}</option>
+            {% endfor %}
+          </select><br />
+         <a class="btn btn-primary btn-large" id="footstep">足迹 »</a>
+    </form>
+</div>
+
+<!-- Example row of columns -->
+<div class="row">
+    <div class="span4">
+    	<div class="section-card">
+            <table class="section-title">
+                <tr>
+                    <td width="0">
+                        <h2>记录走过的地方</h2>
+                    </td>
+                    <td class="arrow-right"></td>
+                    <td></td>
+                </tr>
+            </table>
+            <p class="section-desc">2005年，你在哪里<br />2005年，我离开了家乡<br />也许不是每一座城市都留下了美好的回忆，但每一座城市都是我们活过的证明</p>
+        </div>
+    </div>
+    <div class="span4">
+    	<div class="section-card">
+            <table class="section-title">
+                <tr>
+                    <td width="0">
+                        <h2>分享迁徙的记忆</h2>
+                    </td>
+                    <td class="arrow-right"></td>
+                    <td></td>
+                </tr>
+            </table>
+            <p class="section-desc">什么时候开始，大院的围墙不再是世界的边缘<br />什么时候开始，回家的念头也变得很遥远<br />其实，你觉得离家太远的地方，也是别人的故乡</p>
+        </div>
+    </div>
+    <div class="span4">
+    	<div class="section-card">
+            <table class="section-title">
+                <tr>
+                    <td width="0">
+                        <h2>需找相同的足迹</h2>
+                    </td>
+                    <td class="arrow-right"></td>
+                    <td></td>
+                </tr>
+            </table>
+            <p class="section-desc">或许我们读书的地方只有一墙之隔<br />或许我们条曾在同一条街道的左右漂泊<br />我离开的时候，你正经过<br />我们素昧平生，却有一般的喜怒哀乐</p>
+        </div>
+    </div>
+    <footer>
+        <!-- <p>&copy; Company 2012</p> -->
+    </footer>
+</div>
+{% endblock %}

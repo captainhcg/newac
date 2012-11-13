@@ -1,0 +1,43 @@
+{% load newac_utils %}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WUHULU</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="Tell us where you are from; where you are going to" name="description">
+<meta content="Chongguang He" name="author">
+<link rel="stylesheet" href="{% static_url %}lib/bootstrap/css/bootstrap.css">
+<script src="{% static_url %}js/jquery-1.7.2.min.js"></script>
+<script src="{% static_url %}js/ICanHaz.min.js"></script>
+</head>
+<style>     
+body { padding-top: 52px; padding-bottom: 30px; background-color: #D9EDF7; }
+.brand{ color: #cfcfcf !important; }
+.navbar-inner a{ font-weight: bold !important; }
+h1, h2, h5, .navbar-inner a{ font-family: "Microsoft YaHei","heiti", "Heiti SC" !important; }
+.container{ height: 100%}
+</style>
+<body>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container"> <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a href="#" class="brand">芜湖路</a>
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    {% if visitor %}<li><a href="#">访客{{visitor.nickname}}</a></li>{% endif %}
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+            {% if visitor %}<a href="/leave/" class="brand" style="padding-bottom: 0px; float: right; font-size: 16px; line-height: 24px;">退出</a>{% endif %}
+        </div>
+    </div>
+</div>
+<div class="container main"> 
+{% block content %} {% endblock %}
+</div>
+<script src="{% static_url %}lib/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
